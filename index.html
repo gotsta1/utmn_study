@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная — Учебный сайт</title>
+    <link rel="stylesheet" href="src/assets/styles/style.css">
 </head>
 <body>
-<header>
+<header class="site-header">
     <a href="index.html" aria-label="На главную">
         <img src="src/assets/img/logo_utmn_mini2_rus.png" alt="Логотип учебного сайта" width="160">
     </a>
@@ -16,31 +17,36 @@
             <li><a href="contacts.html">Контакты</a></li>
         </ul>
     </nav>
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <ol class="breadcrumbs__list">
+            <li class="breadcrumbs__item"><span aria-current="page">Главная</span></li>
+        </ol>
+    </nav>
 </header>
 
-<main>
-    <h1>Мой учебный сайт</h1>
-    <p>Здесь собраны примеры простой и понятной HTML-разметки.</p>
+<main class="page-content">
+    <h1 class="title-main">Мой учебный сайт</h1>
+    <p class="text">Здесь собраны примеры простой и понятной HTML-разметки.</p>
 
-    <h3>О проекте</h3>
-    <h4>Учимся создавать веб-страницы</h4>
-    <p>Проект помогает освоить базовые теги и структуру сайта.</p>
+    <h3 class="title-section">О проекте</h3>
+    <h4 class="title-small">Учимся создавать веб-страницы</h4>
+    <p class="text">Проект помогает освоить базовые теги и структуру сайта.</p>
 
-    <h3>Связь с нами</h3>
-    <p>Напишите нам в любое удобное время.</p>
+    <h3 class="title-section">Связь с нами</h3>
+    <p class="text">Напишите нам в любое удобное время.</p>
     <hr>
 </main>
 
-<footer>
-    <h3>Наши контакты</h3>
-    <p>Мы всегда на связи.</p>
+<footer class="site-footer">
+    <h3 class="title-section">Наши контакты</h3>
+    <p class="text">Мы всегда на связи.</p>
     <hr>
     <ul>
-        <li>Учебный сайт</li>
-        <li><a href="tel:+79991234567">+7 999 123-45-67</a></li>
-        <li><a href="mailto:student@example.com">student@example.com</a></li>
+        <li>ТюмГУ</li>
+        <li><a href="tel:+73452597429">+7 (3452) 59-74-29</a></li>
+        <li><a href="mailto:common@utmn.ru">common@utmn.ru</a></li>
     </ul>
-    <p>Все права защищены</p>
+    <p class="text">Все права защищены</p>
 </footer>
 </body>
 </html>
