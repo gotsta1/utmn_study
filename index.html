@@ -3,20 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная — Учебный сайт</title>
+    <title>Учебный сайт — структура страницы</title>
     <link rel="stylesheet" href="src/assets/styles/style.css">
 </head>
 <body>
+<a class="skip-link" href="#main-content">Перейти к содержимому</a>
 <header class="site-header">
     <a href="index.html" aria-label="На главную">
         <img src="src/assets/img/logo_utmn_mini2_rus.png" alt="Логотип учебного сайта" width="160">
     </a>
     <nav aria-label="Основная навигация">
         <ul>
-            <li><a href="index.html">Главная</a></li>
+            <li><a href="#services">Услуги</a></li>
+            <li><a href="#industries">Отрасли</a></li>
+            <li><a href="#projects">Проекты</a></li>
+            <li><a href="#faq">Вопросы</a></li>
             <li><a href="contacts.html">Контакты</a></li>
         </ul>
     </nav>
+    <ul class="header-contacts">
+        <li><a href="tel:+73452597429">+7 (3452) 59-74-29</a></li>
+        <li><a href="mailto:common@utmn.ru">common@utmn.ru</a></li>
+    </ul>
     <nav class="breadcrumbs" aria-label="Хлебные крошки">
         <ol class="breadcrumbs__list">
             <li class="breadcrumbs__item"><span aria-current="page">Главная</span></li>
@@ -24,29 +32,197 @@
     </nav>
 </header>
 
-<main class="page-content">
-    <h1 class="title-main">Мой учебный сайт</h1>
-    <p class="text">Здесь собраны примеры простой и понятной HTML-разметки.</p>
+<main class="page-content" id="main-content">
+    <section class="hero-section" aria-labelledby="hero-title">
+        <div class="hero-intro">
+            <p class="section-label">Цифровые продукты / учебный проект</p>
+            <h1 class="title-main" id="hero-title">Разработка мобильных приложений и веб-сервисов</h1>
+            <p class="text">Учебный пример страницы о разработке цифровых продуктов.</p>
+        </div>
+        <form class="hero-request-form" action="#" method="post">
+            <h2 class="title-section">Оставьте контакты</h2>
+            <p class="text">Заполните форму, чтобы заказать обратный звонок.</p>
+            <div class="hero-request-fields">
+                <p class="text form-row">
+                    <label for="hero-phone">Номер телефона</label>
+                    <input class="form-field" id="hero-phone" name="phone" type="tel" autocomplete="tel">
+                </p>
+                <p class="text form-row">
+                    <label for="hero-name">Имя и фамилия</label>
+                    <input class="form-field" id="hero-name" name="name" type="text" autocomplete="name">
+                </p>
+            </div>
+            <button class="submit-button" type="submit">Получить консультацию</button>
+        </form>
+    </section>
+    <hr>
 
-    <h3 class="title-section">О проекте</h3>
-    <h4 class="title-small">Учимся создавать веб-страницы</h4>
-    <p class="text">Проект помогает освоить базовые теги и структуру сайта.</p>
+    <section class="services-section" id="services" aria-labelledby="services-title">
+        <div class="services-description">
+            <h2 class="title-section" id="services-title">Полный цикл разработки</h2>
+            <p class="text">Команда работает над продуктом от первой идеи до запуска.</p>
+            <h3 class="title-small">Веб-разработка</h3>
+            <p class="text">Сайты, интерфейсы и онлайн-сервисы.</p>
+            <h3 class="title-small">Мобильная разработка</h3>
+            <p class="text">Приложения для телефонов и планшетов.</p>
+        </div>
+        <aside class="services-menu" aria-label="Услуги разработки">
+            <h3 class="title-small">Наши услуги</h3>
+            <ul>
+                <li>Разработка для iOS</li>
+                <li>Разработка для Android</li>
+                <li>Веб-разработка</li>
+                <li>Дизайн интерфейсов</li>
+                <li>Тестирование</li>
+                <li>Запуск продукта</li>
+                <li>Консультации по технологиям</li>
+            </ul>
+        </aside>
+    </section>
+    <hr>
 
-    <h3 class="title-section">Связь с нами</h3>
-    <p class="text">Напишите нам в любое удобное время.</p>
+    <section class="industries-section" id="industries" aria-labelledby="industries-title">
+        <h2 class="title-section" id="industries-title">Отрасли, с которыми мы работаем</h2>
+        <p class="text">Примеры сфер, в которых полезны цифровые продукты.</p>
+        <ul class="industries-list">
+            <li>Социальные сети</li>
+            <li>Образование</li>
+            <li>Дополненная реальность</li>
+            <li>Фитнес и спорт</li>
+            <li>Транспорт</li>
+            <li>Медицина</li>
+            <li>Рестораны</li>
+            <li>Торговые площадки</li>
+            <li>Онлайн-курсы</li>
+        </ul>
+    </section>
+    <hr>
+
+    <section class="projects-section" id="projects" aria-labelledby="projects-title">
+        <h2 class="title-section" id="projects-title">Проекты, которыми мы гордимся</h2>
+        <p class="text">Здесь показаны учебный проект и примеры других работ.</p>
+        <ul class="project-names">
+            <li>Планировщик проектов</li>
+            <li>Учебный портал</li>
+            <li>Городской гид</li>
+            <li>Сервис доставки</li>
+            <li>Мобильный банк</li>
+        </ul>
+        <article class="project-case" aria-labelledby="project-case-title">
+            <div class="project-case-description">
+                <h3 class="title-small" id="project-case-title">Планировщик проектов</h3>
+                <p class="text">Учебный концепт интерфейса для задач, сроков и совместной работы.</p>
+                <ul>
+                    <li>Структура задач</li>
+                    <li>Панель проектов</li>
+                    <li>Адаптивный интерфейс</li>
+                </ul>
+            </div>
+            <figure class="project-case-image">
+                <img src="src/assets/img/projects.png" alt="Экран с примерами цифровых проектов" width="1188" height="810" loading="lazy">
+                <figcaption>Учебная иллюстрация проекта</figcaption>
+            </figure>
+        </article>
+    </section>
+    <hr>
+
+    <section class="project-discussion-section" aria-labelledby="discussion-title">
+        <div class="project-discussion-intro">
+            <h2 class="title-section" id="discussion-title">Обсудим ваш проект</h2>
+            <p class="text">Оставьте контакты, чтобы обсудить вашу идею.</p>
+        </div>
+        <form class="project-discussion-form" action="#" method="post">
+            <p class="text form-row">
+                <label for="discussion-phone">Номер телефона</label>
+                <input class="form-field" id="discussion-phone" name="phone" type="tel" autocomplete="tel">
+            </p>
+            <p class="text form-row">
+                <label for="discussion-name">Имя и фамилия</label>
+                <input class="form-field" id="discussion-name" name="name" type="text" autocomplete="name">
+            </p>
+            <button class="submit-button" type="submit">Обсудить проект</button>
+        </form>
+    </section>
+    <hr>
+
+    <section class="development-stages-section" aria-labelledby="stages-title">
+        <h2 class="title-section" id="stages-title">Этапы разработки приложения</h2>
+        <ol class="development-stages-list">
+            <li><article class="development-stage"><h3 class="title-small">Анализ</h3><p class="text">Определяем задачу и собираем требования.</p></article></li>
+            <li><article class="development-stage"><h3 class="title-small">Дизайн</h3><p class="text">Продумываем интерфейс и путь пользователя.</p></article></li>
+            <li><article class="development-stage"><h3 class="title-small">Разработка</h3><p class="text">Создаём цифровой продукт.</p></article></li>
+            <li><article class="development-stage"><h3 class="title-small">Тестирование</h3><p class="text">Проверяем работу продукта.</p></article></li>
+            <li><article class="development-stage"><h3 class="title-small">Запуск</h3><p class="text">Готовим продукт к публикации.</p></article></li>
+            <li><article class="development-stage"><h3 class="title-small">Поддержка</h3><p class="text">Поддерживаем и улучшаем продукт.</p></article></li>
+        </ol>
+    </section>
+    <hr>
+
+    <section class="team-section" aria-labelledby="team-title">
+        <div class="team-description">
+            <h2 class="title-section" id="team-title">Наша команда</h2>
+            <p class="text">Учебный блок о специалистах, которые работают над проектом.</p>
+            <ul class="team-roles">
+                <li>Дизайнеры</li>
+                <li>Разработчики</li>
+                <li>Тестировщики</li>
+            </ul>
+        </div>
+        <figure class="team-image">
+            <img src="src/assets/img/team.png" alt="Команда обсуждает проект за рабочим столом" width="1674" height="750" loading="lazy">
+            <figcaption>Учебная иллюстрация рабочего места</figcaption>
+        </figure>
+    </section>
+    <hr>
+
+    <section class="ebook-section" aria-labelledby="ebook-title">
+        <h2 class="title-section" id="ebook-title">Получите книгу</h2>
+        <p class="text">Учебный блок с формой для получения электронного пособия.</p>
+        <form class="ebook-request-form" action="#" method="post">
+            <p class="text form-row">
+                <label for="ebook-email">Электронная почта</label>
+                <input class="form-field" id="ebook-email" name="email" type="email" autocomplete="email">
+            </p>
+            <p class="text form-row">
+                <label for="ebook-name">Имя и фамилия</label>
+                <input class="form-field" id="ebook-name" name="name" type="text" autocomplete="name">
+            </p>
+            <button class="submit-button" type="submit">Получить книгу</button>
+        </form>
+    </section>
+    <hr>
+
+    <section class="faq-section" id="faq" aria-labelledby="faq-title">
+        <h2 class="title-section" id="faq-title">Частые вопросы</h2>
+        <div class="faq-questions">
+            <details class="faq-item">
+                <summary>Сколько стоит мобильное приложение?</summary>
+                <p class="text">Стоимость зависит от функций и объёма проекта.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Сколько времени занимает разработка?</summary>
+                <p class="text">Срок зависит от требований и объёма тестирования.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Вы поддерживаете продукт после запуска?</summary>
+                <p class="text">Поддержку можно включить в план проекта.</p>
+            </details>
+        </div>
+    </section>
     <hr>
 </main>
 
 <footer class="site-footer">
     <h3 class="title-section">Наши контакты</h3>
-    <p class="text">Мы всегда на связи.</p>
+    <p class="text">Учебная структура страницы по образцу макета.</p>
     <hr>
-    <ul>
+    <ul class="footer-contacts">
         <li>ТюмГУ</li>
         <li><a href="tel:+73452597429">+7 (3452) 59-74-29</a></li>
         <li><a href="mailto:common@utmn.ru">common@utmn.ru</a></li>
+        <li><a href="contacts.html">Контакты</a></li>
     </ul>
-    <p class="text">Все права защищены</p>
+    <p class="text">Студенческая практическая работа.</p>
 </footer>
 </body>
 </html>

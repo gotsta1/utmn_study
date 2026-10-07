@@ -7,16 +7,24 @@
     <link rel="stylesheet" href="src/assets/styles/style.css">
 </head>
 <body>
+<a class="skip-link" href="#main-content">Перейти к содержимому</a>
 <header class="site-header">
     <a href="index.html" aria-label="На главную">
         <img src="src/assets/img/logo_utmn_mini2_rus.png" alt="Логотип учебного сайта" width="160">
     </a>
     <nav aria-label="Основная навигация">
         <ul>
-            <li><a href="index.html">Главная</a></li>
-            <li><a href="contacts.html">Контакты</a></li>
+            <li><a href="index.html#services">Услуги</a></li>
+            <li><a href="index.html#industries">Отрасли</a></li>
+            <li><a href="index.html#projects">Проекты</a></li>
+            <li><a href="index.html#faq">Вопросы</a></li>
+            <li><a href="contacts.html" aria-current="page">Контакты</a></li>
         </ul>
     </nav>
+    <ul class="header-contacts">
+        <li><a href="tel:+73452597429">+7 (3452) 59-74-29</a></li>
+        <li><a href="mailto:common@utmn.ru">common@utmn.ru</a></li>
+    </ul>
     <nav class="breadcrumbs" aria-label="Хлебные крошки">
         <ol class="breadcrumbs__list">
             <li class="breadcrumbs__item"><a href="index.html">Главная</a></li>
@@ -25,55 +33,67 @@
     </nav>
 </header>
 
-<main class="page-content">
-    <h2 class="title-page">Contact Us</h2>
-    <p class="text">Напишите.</p>
-    <img class="contact-image" src="src/assets/img/premium_photo-1711051475117-f3a4d3ff6778.avif" alt="Рабочее пространство" width="350">
+<main class="page-content" id="main-content">
+    <div class="contact-intro">
+        <p class="section-label">Связаться с нами / ТюмГУ</p>
+        <h2 class="title-page">Свяжитесь с нами</h2>
+        <p class="text">Есть вопрос или идея? Напишите нам — будем рады помочь.</p>
+    </div>
 
-    <h4 class="title-small">Address</h4>
-    <p class="text">Тюмень</p>
-    <address>625003, ул. Володарского, 6</address>
-
-    <h4 class="title-small">Phone</h4>
-    <ul>
-        <li><a href="tel:+73452597429">+7 (3452) 59-74-29</a></li>
-        <li><a href="tel:+73452597759">+7 (3452) 59-77-59</a> — приёмная комиссия</li>
-    </ul>
-
-    <h4 class="title-small">Online service</h4>
-    <ul>
-        <li><a href="https://www.utmn.ru/">Сайт ТюмГУ</a></li>
-        <li><a href="mailto:common@utmn.ru">common@utmn.ru</a></li>
-    </ul>
-
-    <form class="contact-form" action="#" method="post">
-        <h4 class="title-small">Send us message</h4>
-        <p class="text form-row">
-            <label for="full-name">Full Name</label>
-            <input class="form-field" id="full-name" name="full-name" type="text">
-        </p>
-        <p class="text form-row">
-            <label for="email">Email</label>
-            <input class="form-field" id="email" name="email" type="email">
-        </p>
-        <p class="text form-row">
-            <label for="message">Message</label>
-            <textarea class="form-field" id="message" name="message" rows="5"></textarea>
-        </p>
-        <button class="submit-button" type="submit">submit</button>
-    </form>
+    <div class="contact-layout">
+        <img class="contact-image" src="src/assets/img/contacts.png" alt="Рабочее место с ноутбуком у окна" width="1448" height="1086">
+        <form class="contact-form" action="#" method="post">
+            <h4 class="title-small">Напишите нам</h4>
+            <p class="text form-row">
+                <label for="full-name">Имя и фамилия</label>
+                <input class="form-field" id="full-name" name="full-name" type="text" autocomplete="name">
+            </p>
+            <p class="text form-row">
+                <label for="email">Электронная почта</label>
+                <input class="form-field" id="email" name="email" type="email" autocomplete="email">
+            </p>
+            <p class="text form-row">
+                <label for="message">Сообщение</label>
+                <textarea class="form-field" id="message" name="message" rows="5"></textarea>
+            </p>
+            <button class="submit-button" type="submit">Отправить</button>
+        </form>
+    </div>
+    <hr>
+    <section class="contact-details" aria-label="Контактная информация">
+        <div class="contact-detail">
+            <h4 class="title-small">Адрес</h4>
+            <p class="text">Тюмень</p>
+            <address>625003, ул. Володарского, 6</address>
+        </div>
+        <div class="contact-detail">
+            <h4 class="title-small">Телефон</h4>
+            <ul>
+                <li><a href="tel:+73452597429">+7 (3452) 59-74-29</a></li>
+                <li><a href="tel:+73452597759">+7 (3452) 59-77-59</a> — приёмная комиссия</li>
+            </ul>
+        </div>
+        <div class="contact-detail">
+            <h4 class="title-small">Онлайн-связь</h4>
+            <ul>
+                <li><a href="https://www.utmn.ru/">Сайт ТюмГУ</a></li>
+                <li><a href="mailto:common@utmn.ru">common@utmn.ru</a></li>
+            </ul>
+        </div>
+    </section>
 </main>
 
 <footer class="site-footer">
     <h3 class="title-section">Наши контакты</h3>
-    <p class="text">Мы всегда на связи.</p>
+    <p class="text">Учебная структура страницы по образцу макета.</p>
     <hr>
-    <ul>
+    <ul class="footer-contacts">
         <li>ТюмГУ</li>
         <li><a href="tel:+73452597429">+7 (3452) 59-74-29</a></li>
         <li><a href="mailto:common@utmn.ru">common@utmn.ru</a></li>
+        <li><a href="contacts.html">Контакты</a></li>
     </ul>
-    <p class="text">Все права защищены</p>
+    <p class="text">Студенческая практическая работа.</p>
 </footer>
 </body>
 </html>
