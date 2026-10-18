@@ -7,6 +7,7 @@
     --ink-strong: #142f4e;
     --ink-soft: #526b85;
     --blue: #356ead;
+    --callout-blue: #315be8;
     --cyan: #0d789a;
     --paper: #f7f9fb;
     --white: #fff;
@@ -597,7 +598,7 @@ figcaption {
     gap: 64px;
     margin: 48px 0;
     padding: 64px !important;
-    background: var(--ink-strong);
+    background: var(--callout-blue);
 }
 
 .project-discussion-intro .title-section {
@@ -609,11 +610,23 @@ figcaption {
 
 .project-discussion-intro .text {
     max-width: 35ch;
-    color: #d3e2ec;
+    color: var(--white);
+}
+
+.project-discussion-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-3);
+    padding: var(--space-4);
+    background: var(--white);
+}
+
+.project-discussion-form .form-row {
+    margin: 0;
 }
 
 .project-discussion-form .form-row label {
-    color: var(--white);
+    color: var(--ink-strong);
 }
 
 .project-discussion-section :focus-visible {
@@ -621,20 +634,22 @@ figcaption {
 }
 
 .project-discussion-form .submit-button {
-    border-color: var(--white);
-    background: var(--white);
-    color: var(--ink-strong);
+    grid-column: 1 / -1;
+    justify-self: end;
+    border-color: var(--blue);
+    background: var(--blue);
+    color: var(--white);
 }
 
 .project-discussion-form .submit-button:hover {
-    border-color: #d3e2ec;
-    background: #d3e2ec;
+    border-color: var(--ink-strong);
+    background: var(--ink-strong);
 }
 
 .development-stages-list {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 40px 32px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-3);
     margin: var(--space-5) 0 0;
     padding: 0;
     list-style: none;
@@ -647,14 +662,15 @@ figcaption {
 
 .development-stage {
     height: 100%;
-    padding-top: var(--space-3);
-    border-top: 1px solid var(--ink-strong);
+    padding: var(--space-4);
+    border: 1px solid var(--line);
+    background: var(--white);
 }
 
 .development-stage::before {
     content: counter(stage, decimal-leading-zero);
     display: block;
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--space-2);
     color: var(--cyan);
     font-size: 14px;
     font-weight: 700;
@@ -674,7 +690,7 @@ figcaption {
 }
 
 .team-image {
-    grid-column: 1;
+    grid-column: 2;
     grid-row: 1;
 }
 
@@ -704,35 +720,74 @@ figcaption {
 }
 
 .ebook-section {
+    display: grid;
+    grid-template-areas:
+        "title book"
+        "description book"
+        "form book";
+    grid-template-columns: minmax(0, 1fr) minmax(180px, 0.45fr);
+    align-items: start;
+    column-gap: var(--space-6);
     margin: 48px 0;
     padding: 64px !important;
-    border: 1px solid var(--line);
-    background: var(--white);
+    background: var(--callout-blue);
+    color: var(--white);
 }
 
-.ebook-section > .title-section,
-.ebook-section > .text {
+.ebook-section > .title-section {
+    grid-area: title;
+    color: var(--white);
     text-align: left;
 }
 
 .ebook-section > .text {
-    margin-bottom: var(--space-5);
-    color: var(--ink-soft);
+    grid-area: description;
+    margin: 0 0 var(--space-4);
+    color: var(--white);
 }
 
 .ebook-request-form {
+    grid-area: form;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: end;
     gap: var(--space-3);
+    padding: var(--space-4);
+    background: var(--white);
 }
 
 .ebook-request-form .form-row {
     margin: 0;
 }
 
+.ebook-request-form .submit-button {
+    grid-column: 1 / -1;
+    justify-self: end;
+    border-color: var(--blue);
+    background: var(--blue);
+}
+
+.ebook-cover {
+    grid-area: book;
+    align-self: center;
+    justify-self: center;
+    display: grid;
+    place-items: center;
+    width: min(100%, 220px);
+    aspect-ratio: 3 / 4;
+    border-left: 12px solid #c95720;
+    background: #eb7a2d;
+    box-shadow: 14px 18px 0 rgba(20, 47, 78, 0.24);
+    color: var(--white);
+    font-size: clamp(72px, 10vw, 120px);
+    font-weight: 700;
+    transform: rotate(-6deg);
+}
+
 .faq-questions {
-    max-width: 900px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--space-5);
     margin-top: var(--space-5);
 }
 
@@ -1030,8 +1085,11 @@ figcaption {
     }
 
     .ebook-request-form .submit-button {
-        grid-column: 1 / -1;
-        justify-self: start;
+        justify-self: end;
+    }
+
+    .ebook-section {
+        column-gap: var(--space-4);
     }
 }
 
@@ -1078,14 +1136,22 @@ figcaption {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .industries-list,
-    .development-stages-list {
+    .industries-list {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .development-stages-list,
+    .faq-questions {
+        grid-template-columns: minmax(0, 1fr);
     }
 
     .project-discussion-section,
     .ebook-section {
         padding: var(--space-5) !important;
+    }
+
+    .ebook-section {
+        grid-template-columns: minmax(0, 1fr) minmax(140px, 0.4fr);
     }
 
     .team-image {
@@ -1222,6 +1288,38 @@ figcaption {
 
     .ebook-request-form .submit-button {
         grid-column: auto;
+    }
+
+    .project-discussion-form,
+    .ebook-request-form {
+        grid-template-columns: minmax(0, 1fr);
+        padding: var(--space-3);
+    }
+
+    .project-discussion-form .submit-button,
+    .ebook-request-form .submit-button {
+        grid-column: auto;
+        justify-self: stretch;
+    }
+
+    .ebook-section {
+        grid-template-areas:
+            "title"
+            "description"
+            "form"
+            "book";
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: var(--space-3);
+    }
+
+    .ebook-section > .text {
+        margin: 0;
+    }
+
+    .ebook-cover {
+        width: 130px;
+        margin-top: var(--space-3);
+        font-size: 72px;
     }
 
     .submit-button {
