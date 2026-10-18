@@ -9,6 +9,20 @@
 <body>
 <a class="skip-link" href="#main-content">Перейти к содержимому</a>
 <header class="site-header">
+    <details class="header-menu">
+        <summary><span class="menu-icon" aria-hidden="true"></span><span class="visually-hidden">Меню</span></summary>
+        <nav aria-label="Мобильная навигация">
+            <ul>
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#industries">Отрасли</a></li>
+                <li><a href="#projects">Проекты</a></li>
+                <li><a href="#faq">Вопросы</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+            <a href="tel:+73452597429">+7 (3452) 59-74-29</a>
+            <a href="mailto:common@utmn.ru">common@utmn.ru</a>
+        </nav>
+    </details>
     <a href="index.html" aria-label="На главную">
         <img src="src/assets/img/logo_utmn_mini2_rus.png" alt="Логотип учебного сайта" width="160">
     </a>
@@ -25,6 +39,7 @@
         <li><a href="tel:+73452597429">+7 (3452) 59-74-29</a></li>
         <li><a href="mailto:common@utmn.ru">common@utmn.ru</a></li>
     </ul>
+    <a class="header-contact-link" href="contacts.html">Контакты</a>
 </header>
 
 <main class="page-content" id="main-content">
@@ -34,31 +49,29 @@
         </ol>
     </nav>
     <section class="hero-section" aria-labelledby="hero-title">
-        <div class="hero-copy">
-            <div class="hero-intro">
-                <p class="section-label">Цифровые продукты / учебный проект</p>
-                <h1 class="title-main" id="hero-title">Разработка мобильных приложений и веб-сервисов</h1>
-                <p class="text">Учебный пример страницы о разработке цифровых продуктов.</p>
-            </div>
-            <form class="hero-request-form" action="#" method="post">
-                <h2 class="title-section">Оставьте контакты</h2>
-                <p class="text">Заполните форму, чтобы заказать обратный звонок.</p>
-                <div class="hero-request-fields">
-                    <p class="text form-row">
-                        <label for="hero-phone">Номер телефона</label>
-                        <input class="form-field" id="hero-phone" name="phone" type="tel" autocomplete="tel">
-                    </p>
-                    <p class="text form-row">
-                        <label for="hero-name">Имя и фамилия</label>
-                        <input class="form-field" id="hero-name" name="name" type="text" autocomplete="name">
-                    </p>
-                    <button class="submit-button" type="submit">Получить консультацию</button>
-                </div>
-            </form>
+        <div class="hero-intro">
+            <p class="section-label">Цифровые продукты / учебный проект</p>
+            <h1 class="title-main" id="hero-title">Разработка мобильных приложений и веб-сервисов</h1>
+            <p class="text">Учебный пример страницы о разработке цифровых продуктов.</p>
         </div>
         <figure class="hero-visual">
             <img src="src/assets/img/hero-apps.png" alt="Три экрана мобильных приложений: задачи, городской гид и доставка еды" width="1122" height="1402">
         </figure>
+        <form class="hero-request-form" action="#" method="post">
+            <h2 class="title-section">Оставьте контакты</h2>
+            <p class="text">Заполните форму, чтобы заказать обратный звонок.</p>
+            <div class="hero-request-fields">
+                <p class="text form-row">
+                    <label for="hero-phone">Номер телефона</label>
+                    <input class="form-field" id="hero-phone" name="phone" type="tel" autocomplete="tel">
+                </p>
+                <p class="text form-row">
+                    <label for="hero-name">Имя и фамилия</label>
+                    <input class="form-field" id="hero-name" name="name" type="text" autocomplete="name">
+                </p>
+                <button class="submit-button" type="submit">Получить консультацию</button>
+            </div>
+        </form>
     </section>
     <hr>
 
