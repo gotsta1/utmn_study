@@ -1,124 +1,114 @@
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init)
+    document.addEventListener('DOMContentLoaded', init);
 } else {
-    init()
+    init();
 }
 
 function init() {
     const data = {
         name: 'Каталог товаров',
-        hasChildren: true,
         items: [
             {
                 name: 'Мойки',
-                hasChildren: true,
                 items: [
                     {
-                        name: 'Ulgran1',
-                        hasChildren: true,
-                        items: [
-                            {
-                                name: 'SMT1',
-                                hasChildren: false,
-                                items: []
-                            },
-                            {
-                                name: 'SMT2',
-                                hasChildren: false,
-                                items: []
-                            }
-                        ]
+                        name: 'Ulgran',
+                        items: [{ name: 'Smth' }, { name: 'Smth' }]
                     },
+                    { name: 'Vigro Mramor' },
                     {
-                        name: 'Ulgran2',
-                        hasChildren: true,
-                        items: [
-                            {
-                                name: 'SMT3',
-                                hasChildren: false,
-                                items: []
-                            },
-                            {
-                                name: 'SMT4',
-                                hasChildren: false,
-                                items: []
-                            }
-                        ]
-                    }
+                        name: 'Handmade',
+                        items: [{ name: 'Smth' }, { name: 'Smth' }]
+                    },
+                    { name: 'Vigro Glass' }
                 ]
-            },{
+            },
+            {
                 name: 'Фильтры',
-                hasChildren: true,
                 items: [
                     {
-                        name: 'Ulgran3',
-                        hasChildren: true,
-                        items: [
-                            {
-                                name: 'SMT5',
-                                hasChildren: false,
-                                items: []
-                            },
-                            {
-                                name: 'SMT6',
-                                hasChildren: false,
-                                items: []
-                            }
-                        ]
-                    }
+                        name: 'Ulgran',
+                        items: [{ name: 'Smth' }, { name: 'Smth' }]
+                    },
+                    { name: 'Vigro Mramor' }
                 ]
             }
         ]
-    }
+    };
 
+    const items = new ListItems(document.getElementById('list-items'), data);
+    items.init();
+}
 
-    const items = new ListItems(document.getElementById('list-items'), data)
+function ListItems(el, data) {
+    this.el = el;
+    this.data = data;
 
+    this.init = function () {
+        this.render();
 
-  /*  items.render()*/
-    items.init()
+        this.el.addEventListener('click', (event) => {
+            const button = event.target.closest('[data-open]');
 
-    /*console.log(items.renderTest(data));*/
+            if (!button || !this.el.contains(button)) {
+                return;
+            }
 
-    function ListItems(el, data) {
-        this.el = el;
-        this.data = data;
+            this.toggleItems(button.closest('[data-parent]'));
+        });
+    };
 
-        this.init = function () {
-            const parents = this.el.querySelectorAll('[data-parent]')
+    this.render = function () {
+        this.el.replaceChildren(this.renderParent(this.data));
+    };
 
-            parents.forEach(parent => {
-                const open = parent.querySelector('[data-open]')
-
-                open.addEventListener('click', () => this.toggleItems(parent) )
-            })
+    this.renderParent = function (item) {
+        if (!item.items || item.items.length === 0) {
+            return this.renderChildren(item);
         }
 
-        this.render = function () {
-            this.el.insertAdjacentHTML('beforeend', this.renderParent(this.data))
+        const parent = document.createElement('div');
+        parent.className = 'list-item list-item_open';
+        parent.setAttribute('data-parent', '');
+
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'list-item__inner list-item__toggle';
+        button.setAttribute('data-open', '');
+        button.setAttribute('aria-expanded', 'true');
+        button.innerHTML = `
+            <img class="list-item__arrow" src="img/chevron-down.png" alt="">
+            <img class="list-item__folder" src="img/folder.png" alt="">
+            <span></span>
+        `;
+        button.querySelector('span').textContent = item.name;
+
+        const children = document.createElement('div');
+        children.className = 'list-item__items';
+
+        for (const child of item.items) {
+            children.append(this.renderParent(child));
         }
 
-        this.renderParent = function (data) {
-            //проверка всех элементов на hasChildren
-            //если hasChildren, то запускаем renderParent
-            //если !hasChildren, то запускаем renderChildren
-            //возвращает рендер родительского элемента
+        parent.append(button, children);
+        return parent;
+    };
 
-        }
+    this.renderChildren = function (item) {
+        const child = document.createElement('div');
+        child.className = 'list-item';
+        child.innerHTML = `
+            <div class="list-item__inner list-item__leaf">
+                <img class="list-item__folder" src="img/folder.png" alt="">
+                <span></span>
+            </div>
+        `;
+        child.querySelector('span').textContent = item.name;
+        return child;
+    };
 
-        this.renderChildren = function (data) {
-            //вовзращает рендер элемента без вложенности
-        }
-
-        this.toggleItems = function (parent) {
-            parent.classList.toggle('list-item_open')
-        }
-
-/*        this.renderTest = function (data) {
-            return `
-            <div class="test">${data.name}</div>
-            `
-        }*/
-    }
-
+    this.toggleItems = function (parent) {
+        const isOpen = parent.classList.toggle('list-item_open');
+        parent.querySelector('[data-open]').setAttribute('aria-expanded', String(isOpen));
+    };
 }

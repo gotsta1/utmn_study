@@ -6,6 +6,26 @@
   display: flex;
   align-items: center;
   gap: 0.5em;
+  min-height: 44px;
+}
+
+.list-item__toggle {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.list-item__toggle:focus-visible {
+  outline: 2px solid #ce0035;
+  outline-offset: 2px;
+}
+
+.list-item__leaf {
+  padding-left: 1.5em;
 }
 
 .list-item__items {
@@ -28,7 +48,9 @@
 }
 
 .list-item_open > .list-item__inner .list-item__arrow {
-  transform: rotate(180deg);
+  transform: none;
 }
 
-/*# sourceMappingURL=style.css.map */
+.list-item:not(.list-item_open) > .list-item__inner .list-item__arrow {
+  transform: rotate(-90deg);
+}
